@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'api', // default menggunakan JWT guard
         'passwords' => 'users',
     ],
 
@@ -38,6 +38,11 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'jwt', // tambahkan guard untuk JWT
             'provider' => 'users',
         ],
     ],
